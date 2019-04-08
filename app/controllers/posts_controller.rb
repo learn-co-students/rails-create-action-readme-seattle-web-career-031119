@@ -11,5 +11,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def create
+    @post = Post.create(title: params[:title], description: params[:description])
+    # @post = Post.find(params[:id])
+    redirect_to "/posts/#{@post.id}"
+  end
+
   # add create method here
 end
